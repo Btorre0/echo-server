@@ -17,47 +17,38 @@ EC: 25 more points for making it multi-threaded. (really easy)
 
 ## Steps
 
-● One
-
-    ○ Don’t die after one line!
-● Two
-
-    ○ Read all the lines until a CRLF (ignore the headers)
-        ○ Parse the first line
-● Three:
-
-    ○ Then send back a valid response (no headers)
-● Four:
-
-    ○ If the path is /random, send back a random number (with headers)
-
-    ○ text/html (wrap html: ec)
-
-    ○  content-type: text/html
-● Five:
-
-    ○ If the path is /static/filename, return the contents of the file
-    (open, read them, and send them)
+- one: 
+    - Don't die after one line
+- Two: 
+    - read all the lines until a CRLF (ifnore the headers)
+        - parse the first line.
+- three: 
+    - send back a valid response (no headers)
+- four: 
+    - if the path is /random, send back a random (with headers)
+    - content-type: text/html
+    - text/html
+- five:
+    - if the path is /static/filename, return the contents of the file
+    (open, read them, and send them back)
 
 
 ## Client Agreement
 
-● RFC 2616 - Hypertext Transfer Protocol -- HTTP/1.1
+- RFC 2616 - Hypertext Transfer Protocol -- HTTP/1.1
 
-● Client message starts with a VERB line
+- Client message starts with a VERB line
+    - VERB : GET, PUT, POST, DEL, HEAD, OPTIONS, PATCH
 
-    ○ VERB : GET, PUT, POST, DEL, HEAD, OPTIONS, PATCH
+- PATH : a path to a resource on the server
+        - Starts with “/”
 
-    ○ PATH : a path to a resource on the server
+        - Can be a full URL, but that's not usual
 
-        ■ Starts with “/”
+        - NO SPACES ALLOWED
 
-        ● Can be a full URL, but that’s not usual
+        - PROTOCOL: HTTP/1, HTTP/1.1, HTTP/1.2...
 
-        ■ NO SPACES ALLOWED
-
-        ■ PROTOCOL: HTTP/1, HTTP/1.1, HTTP/1.2...
-
-        ■ Ends with a CRLF
+        - Ends with a CRLF
         
-● Then headers, then a CRLF, then body
+Then headers, then a CRLF, then body
