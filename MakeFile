@@ -1,0 +1,35 @@
+# compile (build) the server and client
+# copilot says to make it refined and more readable
+# by adding these
+CC = gcc
+CFLAGS = -pthread
+SERVER_SRC = echo_server.c
+CLIENT_SRC = echo_client.c
+SERVER_BIN = echo_server
+CLIENT_BIN = echo_client
+PORT = 12345
+
+# Default target
+all: $(SERVER_BIN) $(CLIENT_BIN)
+
+# Build server
+$(SERVER_BIN): $(SERVER_SRC)
+	$(CC) $(CFLAGS) $(SERVER_SRC) -o $(SERVER_BIN)
+
+# Build client
+$(CLIENT_BIN): $(CLIENT_SRC)
+	$(CC) $(CFLAGS) $(CLIENT_SRC) -o $(CLIENT_BIN)
+
+start: $(SERVER_BIN) $(CLIENT_BIN)
+	./$(SERVER_BIN) -p $(PORT) &
+	sleep 1  # Give the server time to start
+	./$(CLIENT_BIN) localhost $(PORT)
+
+clean: 
+	rm -f $(SERVER_BIN) $(CLIENT_BIN)
+
+test: $(SERVER_BIN)
+	./$(SERVER_BIN) -p $(PORT) &
+	sleep 1  # Give the server time to start
+	telnet localhost $(PORT)
+

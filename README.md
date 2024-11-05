@@ -14,6 +14,7 @@ Highly recommended: test it with your web browser, too.
 
 EC: 25 more points for making it multi-threaded. (really easy)
 
+(Surprise: this will be the basis of Asst 12, so ensure you understand it completely. And asst 12 *must* be multi-threaded)
 
 ## Steps
 
@@ -31,6 +32,8 @@ EC: 25 more points for making it multi-threaded. (really easy)
 - five:
     - if the path is /static/filename, return the contents of the file
     (open, read them, and send them back)
+
+    ?
 
 
 ## Client Agreement
@@ -50,5 +53,25 @@ EC: 25 more points for making it multi-threaded. (really easy)
         - PROTOCOL: HTTP/1, HTTP/1.1, HTTP/1.2...
 
         - Ends with a CRLF
-        
+       
 Then headers, then a CRLF, then body
+
+
+## more notes from class:
+echo server (type abc it returns abc to you)
+- web server coming up
+
+socket/ bind / listen / accept
+
+send them back with write()
+
+- port - room location
+listen back log = how many people can talk
+in handle connection; read it from client and read it back
+
+have to have two terminals; text from one and recieve it from the other terminal
+connect using tenelect
+
+only listened and honors ones
+
+process duplicates everything 
